@@ -1,0 +1,83 @@
+target 'BookNGogo' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for BookNGogo
+  rn_path = '../node_modules/react-native'
+  
+  pod 'React', path: rn_path, subspecs: [
+    'Core',
+    'RCTActionSheet',
+    'RCTAnimation',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTWebSocket',
+    'RCTGeolocation',
+    'CxxBridge',
+    'DevSupport',
+    'RCTBlob',
+  ]
+
+  # Third party deps podspec link
+  pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
+  pod 'DoubleConversion', :podspec => "#{rn_path}/third-party-podspecs/DoubleConversion.podspec"  
+  pod 'glog', :podspec => "#{rn_path}/third-party-podspecs/glog.podspec"  
+  pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+  pod 'RNLocalize', :path => '../node_modules/react-native-localize'
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+  # pod 'RNCWebView', :path => '../node_modules/react-native-webview/react-native-webview.podspec'
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'  
+  # pod 'RNImagePicker', :path => '../node_modules/react-native-image-picker'
+  # pod 'react-native-document-picker', :path => '../node_modules/react-native-document-picker'
+
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+  pod 'react-native-google-places', :path => '../node_modules/react-native-google-places'
+  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
+#  pod 'RNStripeTerminal', :path => '../node_modules/react-native-stripe-terminal'
+  pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
+  pod 'react-native-simple-toast', :path => '../node_modules/react-native-simple-toast'
+  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
+  pod 'RNImageCropPicker', :path => '../node_modules/react-native-image-crop-picker'
+  pod 'QBImagePickerController', :path => '../node_modules/react-native-image-crop-picker/ios/QBImagePicker/QBImagePickerController.podspec'
+
+  # Required by RNFirebase
+  pod 'Firebase/Core', '~> 6.3.0'
+  pod 'GoogleSignIn', '~> 5.0.2'
+  pod 'StripeTerminal', '1.0.0'
+  pod 'Stripe', '~> 14.0.0'
+  pod 'Firebase/DynamicLinks'
+  pod 'Firebase/Messaging'
+
+  target 'BookNGogo-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'BookNGogoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == 'react-native-google-places'
+      target.build_configurations.each do |config|
+        config.build_settings['CLANG_ENABLE_MODULES'] = 'No'
+      end
+    end
+    if target.name == "React"
+      target.remove_from_project
+    end
+  end
+end

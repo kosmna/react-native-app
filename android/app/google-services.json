@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "744053116568",
+    "firebase_url": "https://bookngogo-app.firebaseio.com",
+    "project_id": "bookngogo-app",
+    "storage_bucket": "bookngogo-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744053116568:android:9a0298fb8cc660e5de8aed",
+        "android_client_info": {
+          "package_name": "com.bookngogo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744053116568-lsbe8k53oeouivhuu2ctsc1tis6eb8jp.apps.googleusercontent.com",
+          "client_type": 3,
+          "android_info": {
+            "package_name": "com.bookngogo",
+            "certificate_hash": "42ef78900d3e3b4d95db17600b84673c7699bedf"
+          }
+        },
+        {
+          "client_id": "744053116568-lsbe8k53oeouivhuu2ctsc1tis6eb8jp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaI10-8lDVV3Tgb7tzgf1HK_DeKYUS3Cw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "744053116568-2uev850h6nlm7mng11s4ih0r03ipej0l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
